@@ -13,6 +13,6 @@
 ## 「Git for Windows -2.26.2 64bit」のインストール
 
  1.ユーザー名とメールアドレスの登録
-「git bash」を起動して
-  git config --global user.name "ユーザー名"
-  git config --global user.email "メールアドレス"
+「git bash」を起動して  
+  `git config --global user.name "ユーザー名"`  
+  `git config --global user.email "メールアドレス"`  
