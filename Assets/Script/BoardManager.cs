@@ -85,8 +85,8 @@ public class BoardManager : MonoBehaviour
         Maze = new int[width,height];
 
         Direction Dir = Direction.none;
-        int x = 0;
-        int y = 0;
+        int x = 1;
+        int y = 1;
 
         Maze[x,y] = 1;
 
@@ -112,7 +112,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 0 && y % 2 == 0)
+                            if (x % 2 == 1 && y % 2 == 1)
                             {
                                 break;
                             }
@@ -133,7 +133,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 0 && y % 2 == 0)
+                            if (x % 2 == 1 && y % 2 == 1)
                             {
                                 break;
                             }
@@ -154,7 +154,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 0 && y % 2 == 0)
+                            if (x % 2 == 1 && y % 2 == 1)
                             {
                                 break;
                             }
@@ -175,7 +175,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 0 && y % 2 == 0)
+                            if (x % 2 == 1 && y % 2 == 1)
                             {
                                 break;
                             }
@@ -200,7 +200,6 @@ public class BoardManager : MonoBehaviour
                 if (Maze[x,y] == 1)
                 {
                     GameObject toInstantiate = floorTiles[0];
-
                     //Clone the Tiles
                     GameObject instance = Instantiate(toInstantiate, 
                                                         new Vector3(x, y, 0), 
