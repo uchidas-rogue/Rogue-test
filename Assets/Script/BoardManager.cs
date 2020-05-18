@@ -85,17 +85,14 @@ public class BoardManager : MonoBehaviour
         Maze = new int[width,height];
 
         Direction Dir = Direction.none;
-        int x = 1;
+        int x = width - 2;
         int y = 1;
 
         Maze[x,y] = 1;
 
-        for (int i=0;i<121;i++)
+        for (int i=0;i<1000;i++)
         {
-            while (Dir == Direction.none)
-            {
-                Dir = (Direction) Random.Range(0,4);
-            }
+            Dir = (Direction) Random.Range(1,4);
             switch (Dir)
             {
                 case Direction.up:
@@ -107,12 +104,12 @@ public class BoardManager : MonoBehaviour
                         Maze[x,y] = 1;
                     }
                     else
-                    {               
+                    {
                         while (true)
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 1 && y % 2 == 1)
+                            if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] == 1)
                             {
                                 break;
                             }
@@ -133,7 +130,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 1 && y % 2 == 1)
+                            if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] == 1)
                             {
                                 break;
                             }
@@ -154,7 +151,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 1 && y % 2 == 1)
+                            if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] == 1)
                             {
                                 break;
                             }
@@ -175,7 +172,7 @@ public class BoardManager : MonoBehaviour
                         {
                             x = Random.Range(0,width-1);
                             y = Random.Range(0,height-1);
-                            if (x % 2 == 1 && y % 2 == 1)
+                            if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] == 1)
                             {
                                 break;
                             }

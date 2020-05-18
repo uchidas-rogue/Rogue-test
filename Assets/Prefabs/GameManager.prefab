@@ -56,8 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529b6632e19088b47acacb76facba8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 8
-  width: 8
+  height: 21
+  width: 21
   floorTiles:
   - {fileID: 9096768343651243088, guid: 4ca4b2b978219c24b8bf5ebd41ab0559, type: 3}
   wallTiles:
