@@ -37,10 +37,34 @@ public class MakeMaze
     {
         while (true)
         {//change position where floor tiles exist
-            x = Random.Range(0,width-1);
-            y = Random.Range(0,height-1);
+            x = Random.Range(0,width);
+            y = Random.Range(0,height);
             if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] == 1){break;}
         }
+    }
+
+    private bool CanDig(int x, int y)
+    {
+        return ((y + 2*(int)Direction.up > -1 && y + 2*(int)Direction.up < height) && (Maze[x,y+2*(int)Direction.up] != 1)
+                || (y + 2*(int)Direction.down > -1 && y + 2*(int)Direction.down < height) && (Maze[x,y+2*(int)Direction.down] != 1)
+                || (x + (int)Direction.left > -1 && x + (int)Direction.left < width) && (Maze[x+(int)Direction.left,y] != 1)
+                || (x + (int)Direction.right > -1 && x + (int)Direction.right < width) && (Maze[x+(int)Direction.right,y] != 1));
+    }
+
+    private bool ISAnyDigPosition()
+    {
+        bool flg = false;
+        for (int i = 0; i < (width-1)/2; i++)
+        {
+            for (int j = 0; j < (height-1)/2; j++)
+            {
+                if (CanDig(2*i+1, 2*j+1))
+                {
+                    flg = true;
+                }
+            }
+        }
+        return flg;
     }
 
     public void DigMaze()
@@ -49,10 +73,10 @@ public class MakeMaze
         //entry position
         x = width - 2;
         y = height - 2;
-        //deploy floor tile
+        //turn to floor tile
         Maze[x,y] = 1;
 
-        for (int i=0;i<1000;i++)
+        while (ISAnyDigPosition())
         {
             ChangeDir();
 
@@ -72,7 +96,7 @@ public class MakeMaze
             }
             else if (direction == Direction.left || direction == Direction.right)
             {
-                if ((x + (int)direction > -1 && x + (int)direction < height) && (Maze[x+(int)direction,y] != 1))
+                if ((x + (int)direction > -1 && x + (int)direction < width) && (Maze[x+(int)direction,y] != 1))
                 {
                     x+=(int)direction/2;
                     Maze[x,y] = 1;
