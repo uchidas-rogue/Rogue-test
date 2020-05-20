@@ -26,10 +26,20 @@ public class MakeMaze
 
     private void ChangeDir()
     {
-        while (true)
+        switch (Random.Range(1,5))
         {
-            direction = (Direction) Random.Range(-2,2);
-            if (direction != Direction.none){break;}
+            case 1:
+                direction = Direction.up;
+                break;
+            case 2:
+                direction = Direction.down;
+                break;
+            case 3:
+                direction = Direction.left;
+                break;
+            case 4:
+                direction = Direction.right;
+                break;
         }
     }
 
@@ -39,16 +49,16 @@ public class MakeMaze
         {//change position where floor tiles exist
             x = Random.Range(0,width);
             y = Random.Range(0,height);
-            if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] == 1){break;}
+            if (x % 2 == 1 && y % 2 == 1 && Maze[x,y] != 0){break;}
         }
     }
 
     private bool CanDig(int x, int y)
     {
-        return ((y + 2*(int)Direction.up > -1 && y + 2*(int)Direction.up < height) && (Maze[x,y+2*(int)Direction.up] != 1)
-                || (y + 2*(int)Direction.down > -1 && y + 2*(int)Direction.down < height) && (Maze[x,y+2*(int)Direction.down] != 1)
-                || (x + (int)Direction.left > -1 && x + (int)Direction.left < width) && (Maze[x+(int)Direction.left,y] != 1)
-                || (x + (int)Direction.right > -1 && x + (int)Direction.right < width) && (Maze[x+(int)Direction.right,y] != 1));
+        return ((y + 2*(int)Direction.up > -1 && y + 2*(int)Direction.up < height) && (Maze[x,y+2*(int)Direction.up] == 0)
+                || (y + 2*(int)Direction.down > -1 && y + 2*(int)Direction.down < height) && (Maze[x,y+2*(int)Direction.down]  == 0)
+                || (x + (int)Direction.left > -1 && x + (int)Direction.left < width) && (Maze[x+(int)Direction.left,y]  == 0)
+                || (x + (int)Direction.right > -1 && x + (int)Direction.right < width) && (Maze[x+(int)Direction.right,y]  == 0));
     }
 
     private bool ISAnyDigPosition()
@@ -70,9 +80,9 @@ public class MakeMaze
     public void DigMaze()
     {
         Maze = new int[width,height];
-        //entry position
-        x = width - 2;
-        y = height - 2;
+        //entry position x,y oddnum,oddnum
+        x = 1;
+        y = 1;
         //turn to floor tile
         Maze[x,y] = 1;
 
@@ -82,7 +92,7 @@ public class MakeMaze
 
             if (direction == Direction.up || direction == Direction.down)
             {
-                if ((y + 2*(int)direction > -1 && y + 2*(int)direction < height) && (Maze[x,y+2*(int)direction] != 1))
+                if ((y + 2*(int)direction > -1 && y + 2*(int)direction < height) && (Maze[x,y+2*(int)direction]  == 0))
                 {
                     y+=(int)direction;
                     Maze[x,y] = 1;
@@ -94,9 +104,9 @@ public class MakeMaze
                     ChangePosition();
                 }
             }
-            else if (direction == Direction.left || direction == Direction.right)
+            if (direction == Direction.left || direction == Direction.right)
             {
-                if ((x + (int)direction > -1 && x + (int)direction < width) && (Maze[x+(int)direction,y] != 1))
+                if ((x + (int)direction > -1 && x + (int)direction < width) && (Maze[x+(int)direction,y]  == 0))
                 {
                     x+=(int)direction/2;
                     Maze[x,y] = 1;
