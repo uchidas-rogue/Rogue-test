@@ -17,7 +17,7 @@
    入れると余計なエラー表示が消える  
 
 * 必要なVScodeの拡張機能
- C#(powered by OmniSharp  
+ C# powered by OmniSharp  
  C# Extensions  
  C# FixFormat  
  Debugger for Unity  
@@ -37,3 +37,22 @@
 「git bash」を起動して  
   `git config --global user.name "ユーザー名"`  
   `git config --global user.email "メールアドレス"`  
+
+## 「GIMP 2.10.18」のインストール
+
+1. photoshopの代わり、最新版でもok
+
+## 「Unity2019.3.13f1」の環境設定
+
+1. VScodeをデフォルトエディターに設定
+ 「Edit」タブを開き「Preferences…」をクリック
+ 「External Tools」の「External Script Editor」を「VisualStudioCode」に変更
+ ※「Generate .csproj files for:」のパラメータ全部チェックをつけて「Regenerate project files」
+2. プラットホームをAndoroidに変更
+ 「File」タブを開き「Build Setting」をクリック
+ 「Android」を選択して「Switch Platform」をクリック
+3. 「CRIware」の導入
+ 「ADX2 LE」を公式サイトよりダウンロード  
+ C:\criにダウンロードしたファイルを展開  
+ Unityにて「Asset」タブを開き「Import Package」=>「Custom Package…」をクリック  
+ C:\cri\unity\pluginにあるパッケージを導入（チェックマークはデフォルト）
