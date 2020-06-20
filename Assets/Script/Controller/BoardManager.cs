@@ -97,6 +97,10 @@ public class BoardManager : MonoBehaviour
                     //if floor at random [0] => [Random.Range(0, floorTiles.Length)]
                     SetTiles(floorTiles[0],x,y);
                 }
+                else if (makeMaze.Maze[x,y] == 2)
+                {
+                    SetTiles(floorTiles[0],x,y);
+                }
                 
             }
         }
