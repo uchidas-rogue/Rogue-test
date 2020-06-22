@@ -36,7 +36,7 @@
  1. ユーザー名とメールアドレスの登録
 「git bash」を起動して  
   `git config --global user.name "ユーザー名"`  
-  `git config --global user.email "メールアドレス"` 
+  `git config --global user.email "メールアドレス"`  
 
 ## 「git-lfs-windows-v2.11.0.exe」のインストール
 
