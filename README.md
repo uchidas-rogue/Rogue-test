@@ -49,15 +49,15 @@
 
 ## 「Unity2019.3.13f1」の環境設定
 
-1. VScodeをデフォルトエディターに設定
- 「Edit」タブを開き「Preferences…」をクリック
- 「External Tools」の「External Script Editor」を「VisualStudioCode」に変更
- ※「Generate .csproj files for:」のパラメータ全部チェックをつけて「Regenerate project files」
-2. プラットホームをAndoroidに変更
- 「File」タブを開き「Build Setting」をクリック
- 「Android」を選択して「Switch Platform」をクリック
-3. 「CRIware」の導入
+1. VScodeをデフォルトエディターに設定  
+ 「Edit」タブを開き「Preferences…」をクリック  
+ 「External Tools」の「External Script Editor」を「VisualStudioCode」に変更  
+ ※「Generate .csproj files for:」のパラメータ全部チェックをつけて「Regenerate project files」  
+2. プラットホームをAndoroidに変更  
+ 「File」タブを開き「Build Setting」をクリック  
+ 「Android」を選択して「Switch Platform」をクリック  
+3. 「CRIware」の導入  
  「ADX2 LE」を公式サイトよりダウンロード  
  C:\criにダウンロードしたファイルを展開  
  Unityにて「Asset」タブを開き「Import Package」=>「Custom Package…」をクリック  
- C:\cri\unity\pluginにあるパッケージを導入（チェックマークはデフォルト）
+ C:\cri\unity\pluginにあるパッケージを導入（チェックマークはデフォルト）  
