@@ -202,25 +202,5 @@ public class MakeMaze
             }
             cnt++;
         }
-
-        
-
-
-        // while (ISAnyDigPosition())
-        // {
-        //     ChangeDir();
-        //     if (Random.Range(0,2) == 0)
-        //     {
-        //         MakeRoom();
-        //     }
-        //     else
-        //     {
-        //         MakePath();
-        //     }
-        //     if (!CanDig(x,y))
-        //     {
-        //         ChangePosition();
-        //     }
-        // }
     }
 }
