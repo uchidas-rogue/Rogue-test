@@ -33,10 +33,15 @@
 
 ## 「Git for Windows -2.26.2 64bit」のインストール
 
- 1.ユーザー名とメールアドレスの登録
+ 1. ユーザー名とメールアドレスの登録
 「git bash」を起動して  
   `git config --global user.name "ユーザー名"`  
-  `git config --global user.email "メールアドレス"`  
+  `git config --global user.email "メールアドレス"` 
+
+## 「git-lfs-windows-v2.11.0.exe」のインストール
+
+1. Git Large File Storage の公式サイトよりインストール
+ ※画像や音声などのサイズの大きいファイル用
 
 ## 「GIMP 2.10.18」のインストール
 
