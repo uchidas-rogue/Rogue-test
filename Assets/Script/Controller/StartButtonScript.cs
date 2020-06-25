@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
+
+///
+/// attach to StartButtonObject in Title Scene
+///
 public class StartButtonScript : MonoBehaviour
 {
     //button pressed first

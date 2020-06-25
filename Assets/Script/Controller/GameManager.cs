@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///
+/// attach to GameManagerObject
+///
 public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton;
