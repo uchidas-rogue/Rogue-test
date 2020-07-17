@@ -13,6 +13,7 @@ public class MakeMaze
     private int roomSize;
     private int roomEntry;
     private int roomNumber;
+    private List<int[]> FloorPosList = new List<int[]>();
     public MakeMaze(int width, int height)
     {
         this.width = width;
@@ -46,7 +47,7 @@ public class MakeMaze
         if (direction == Direction.up || direction == Direction.down)
         {
             return CheckInside0Position(x,y+2*(int)direction);
-        }else //(direction == Direction.up || direction == Direction.down)
+        }else //(direction == Direction.left || direction == Direction.right)
         {
             return CheckInside0Position(x+(int)direction,y);
         }
@@ -88,13 +89,28 @@ public class MakeMaze
                     && CheckInside0Position(x-entry,y+(size-1)*(int)direction)
                     && CheckInside0Position(x-entry+size-1,y+(size-1)*(int)direction)
                     ); 
-        }else //(direction == Direction.up || direction == Direction.down)
+        }else //(direction == Direction.left || direction == Direction.right)
         {
             return (CheckInside0Position(x,y-entry)
                     && CheckInside0Position(x,y-entry+size-1)
                     && CheckInside0Position(x+(size-1)*(int)direction/2,y-entry)
                     && CheckInside0Position(x+(size-1)*(int)direction/2,y-entry+size-1)
                     );
+        }
+    }
+
+    private void CheckFloorPosition()
+    {
+        FloorPosList.Clear();
+        for (int i = 0; i < (width-1)/2; i++)
+        {
+            for (int j = 0; j < (height-1)/2; j++)
+            {
+                if (Maze[2*i+1,2*j+1] != 0)
+                {
+                    FloorPosList.Add(new int[2]{2*i+1,2*j+1});
+                }
+            }
         }
     }
 
@@ -115,18 +131,18 @@ public class MakeMaze
 
     private void ChangeDir()
     {
-        switch (Random.Range(1,5))
+        switch (Random.Range(0,4))
         {
-            case 1:
+            case 0:
                 direction = Direction.up;
                 break;
-            case 2:
+            case 1:
                 direction = Direction.down;
                 break;
-            case 3:
+            case 2:
                 direction = Direction.left;
                 break;
-            case 4:
+            case 3:
                 direction = Direction.right;
                 break;
         }
@@ -134,18 +150,10 @@ public class MakeMaze
 
     private void ChangePosition()
     {
-        for (int i = 0; i < (width-1)/2; i++)
-        {
-            for (int j = 0; j < (height-1)/2; j++)
-            {
-                if (CheckCanDig(2*i+1, 2*j+1) && Maze[2*i+1,2*j+1] != 0)
-                {
-                    x = 2*i+1;
-                    y = 2*j+1;
-                    return;
-                }
-            }
-        }
+        CheckFloorPosition();
+        int randomListNum =Random.Range(0,FloorPosList.Count);
+        this.x = FloorPosList[randomListNum][0];
+        this.y = FloorPosList[randomListNum][1];
     }
 
     private void ChangeroomSizeAndroomEntry()
@@ -214,10 +222,11 @@ public class MakeMaze
     {
         Maze = new int[width,height];
         //entry position x,y oddnum,oddnum
-        x=(width-1)/2 + 1;
-        y=(height-1)/2 + 1;
+        //x=(width-1)/2 + 1;
+        //y=(height-1)/2 + 1;
 
         ChangeroomSizeAndroomEntry();
+        roomEntry = 0;
         if (CheckCanMakeRoom(this.x,this.y,this.roomSize,this.roomEntry))
         {
             while (!CheckCanMakeRoom(this.x,this.y,this.roomSize,this.roomEntry,this.direction))
@@ -229,9 +238,11 @@ public class MakeMaze
         
         int cnt = 0;
 
-        while (cnt < 100)
+        while (cnt < 250)
         {
+            ChangeDir();
             ChangeroomSizeAndroomEntry();
+            
             if (CheckCanMakeRoom(this.x,this.y,this.roomSize,this.roomEntry))
             {
                 while (!CheckCanMakeRoom(this.x,this.y,this.roomSize,this.roomEntry,this.direction))
@@ -240,12 +251,8 @@ public class MakeMaze
                 }
                 MakeRoom();
             }
-            else if (CheckCanDig(this.x,this.y))
-            { 
-                while (!CheckCanDig(this.x,this.y,this.direction))
-                {
-                    ChangeDir();
-                }
+            else if (CheckCanDig(this.x,this.y,this.direction))
+            {
                 MakePath();
             }
             else
