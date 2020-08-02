@@ -1,5 +1,15 @@
 # Rogue-test
 
+## Mac用コマンド
+
+DockからLaunchpad→その他→ターミナルでターミナルを起動  
+以下のコマンドを入力  
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"  
+brew install git  
+brew cask install google-chrome  
+brew cask install unity-hub  
+brew cask install visual-studio-code  
+
 ## 「Unity hub」のインストール
 
  「Unity2019.3.13f1」のインストール
