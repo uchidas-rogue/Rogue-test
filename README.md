@@ -4,12 +4,12 @@
 
 DockからLaunchpad→その他→ターミナルでターミナルを起動  
 以下のコマンドを入力  
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"  
-brew install git  
-brew cask install google-chrome  
-brew cask install unity-hub  
-brew cask install visual-studio-code  
-brew cask install zoomus
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`  
+`brew install git`  
+`brew cask install google-chrome`  
+`brew cask install unity-hub`  
+`brew cask install visual-studio-code`  
+`brew cask install zoomus`
 
 ## 「Unity hub」のインストール
 
