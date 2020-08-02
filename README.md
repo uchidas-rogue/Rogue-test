@@ -13,9 +13,8 @@ brew cask install zoomus
 
 ## 「Unity hub」のインストール
 
- 「Unity2019.3.13f1」のインストール
- ※VisualStudioはインストールしない（VScodeで代用）
- ※Documentation,Andoroid,日本語のコンポーネントを追加してインストール
+ 「Unity2019.4.6f1」のインストール  
+ ※VisualStudio,Andoroid,ios,日本語のコンポーネントを追加してインストール  
 
 ## 「VScode 1.45.0 64bit」のインストール
 
