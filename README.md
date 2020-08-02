@@ -9,6 +9,7 @@ brew install git
 brew cask install google-chrome  
 brew cask install unity-hub  
 brew cask install visual-studio-code  
+brew cask install zoomus
 
 ## 「Unity hub」のインストール
 
