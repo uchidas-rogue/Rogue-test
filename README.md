@@ -27,7 +27,7 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
  「.NET core 3.1 SDK」のインストール（任意）  
    入れると余計なエラー表示が消える  
 
-* 必要なVScodeの拡張機能
+* 必要なVScodeの拡張機能  
  C# powered by OmniSharp  
  C# Extensions  
  C# FixFormat  
