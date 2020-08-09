@@ -13,6 +13,7 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 `brew cask install unity-hub`  
 `brew cask install visual-studio-code`  
 `brew cask install zoomus`
+`brew cask install gimp`
 
 ## 「Unity hub」のインストール
 
