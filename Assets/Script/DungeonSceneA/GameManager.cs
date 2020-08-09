@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private BoardManager boardScript;
 
     //Awake call when Game start
-    void Awake() 
+    void Awake ()
     {
         if (Singleton == null)
         {
@@ -19,18 +19,18 @@ public class GameManager : MonoBehaviour
         }
         else if (Singleton != this)
         {
-            Destroy(gameObject);
+            Destroy (gameObject);
         }
         //the gameobject(GameManager is attached to) dont destroy while game awaking
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad (gameObject);
 
         //BoardManager
-        boardScript = GetComponent<BoardManager>();
-        InitGame();
+        boardScript = GetComponent<BoardManager> ();
+        InitGame ();
     }
 
-    void InitGame()
+    void InitGame ()
     {
-        boardScript.SetupScene();
+        boardScript.SetupScene ();
     }
 }

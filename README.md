@@ -19,6 +19,16 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 
 ## 「VScode 1.45.0 64bit」のインストール
 
+* Mac用　設定追記  
+  1. spotlightのキーバインドを変更  
+  システム環境設定→spotlight→キーバインド  
+  「spotlightの検索を表示」のチェックを外す  
+  2. インテリセンスのサジェストトリガーの設定  
+  `command+k -> command+s`  
+  以下の文字で検索  
+  `editor.action.triggerSuggest`  
+  キーバインドを「command+space」に変更  
+
 * 公式サイトからインストーラをダウンロードしてインストール  
  「mono-6.8.0.123-x64」のインストール（必須かどうか不明）  
    入れないとコード補完がきかない？  

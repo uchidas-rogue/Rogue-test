@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MovingObject
-{
-    　
+{　
+    private void feee ()
+    {
+        return;
+    }
 }

@@ -10,11 +10,11 @@ public class DungeonLoader : MonoBehaviour
     //tha gameobject GameManager is attached to 
     public GameObject gameManager;
 
-    void Awake() 
+    void Awake ()
     {
         if (GameManager.Singleton == null)
         {
-            Instantiate(gameManager);
-        }   
+            Instantiate (gameManager);
+        }
     }
 }
