@@ -1,5 +1,7 @@
 # Rogue-test
 
+hashimoto 環境構築完了
+
 ## Mac用コマンド
 
 DockからLaunchpad→その他→ターミナルでターミナルを起動  
