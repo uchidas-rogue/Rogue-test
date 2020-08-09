@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public abstract class MovingObject : MonoBehaviour
 {
+    public LayerMask blockingLayer;
+    private BoxCollider2D boxCollider;
     public float moveTime = 0.05f;
     private Rigidbody2D rb2d;
     private float inverseMoveTime;
@@ -14,6 +16,7 @@ public abstract class MovingObject : MonoBehaviour
     protected virtual void Start ()
     {
         this.rb2d = GetComponent<Rigidbody2D> ();
+        this.boxCollider = GetComponent<BoxCollider2D> ();
         this.inverseMoveTime = 1f / moveTime;
     }
 
@@ -30,9 +33,9 @@ public abstract class MovingObject : MonoBehaviour
         }
 
         GameManager.Singleton.playersTurn = true;
-    } 
+    }
 
-    protected bool Move (int xDir, int yDir)
+    protected bool Move (int xDir, int yDir, out RaycastHit2D hit)
     {
         //移動先に何らかの物体があるかどうかチェックする。
         //何もない場合はSmoothMovementを呼んで移動する。
@@ -40,14 +43,25 @@ public abstract class MovingObject : MonoBehaviour
         Vector2 start = transform.position;
         Vector2 end = (start + new Vector2 (xDir, yDir));
 
-        StartCoroutine (SmoothMovement (end));
-        return true;
+        this.boxCollider.enabled = false;
+        hit = Physics2D.Linecast (start, end, this.blockingLayer);
+
+        this.boxCollider.enabled = true;
+
+        if (hit.transform == null)
+        {
+            StartCoroutine (SmoothMovement (end));
+            return true;
+        }
+
+        return false;
     }
 
     protected virtual void AttemptMove (int xDir, int yDir)
     {
         //MoveやOnCantMoveといった移動処理に関する一連の処理を呼び出す。
         //外部のクラスからこのオブジェクトを移動させるための入り口。
-        Move(xDir, yDir);
+        RaycastHit2D hit;
+        GameManager.Singleton.playersTurn = !Move (xDir, yDir, out hit);
     }
 }

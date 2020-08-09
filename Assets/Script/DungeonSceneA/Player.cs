@@ -30,7 +30,7 @@ public class Player : MovingObject
 
     protected override void AttemptMove (int xDir, int yDir)
     {
-        base.AttemptMove (xDir, yDir);
         GameManager.Singleton.playersTurn = false;
+        base.AttemptMove (xDir, yDir);
     }
 }

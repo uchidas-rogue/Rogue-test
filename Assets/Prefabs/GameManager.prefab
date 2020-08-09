@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0d3372bf13b554d8eb52a88a677b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnDelay: 0.1
   playersTurn: 1
 --- !u!114 &6005745545912370129
 MonoBehaviour:
@@ -60,7 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 21
   width: 21
-  player: {fileID: 443155927198568571, guid: c0e3f68a3d881416cbeed4a332d86d41, type: 3}
   floorTiles:
   - {fileID: 9096768343651243088, guid: 4ca4b2b978219c24b8bf5ebd41ab0559, type: 3}
   wallTiles:
@@ -72,3 +70,4 @@ MonoBehaviour:
   - {fileID: 2662122867652339223, guid: b8a3a0eb3fe6b99459da0e483818cca2, type: 3}
   - {fileID: 4268576974811807582, guid: 8f08c44ed92ac5041b602c438cca9708, type: 3}
   - {fileID: 5457121429786728946, guid: d42cf67a67be28e4d9a4f9d3bcd00b3e, type: 3}
+  - {fileID: 2973792121601867784, guid: 623d8c4514890467db44cd7c365962da, type: 3}
