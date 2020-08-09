@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///
+/// <summary>
 /// attach to GameManagerObject
-///
+/// </summary>
 public class BoardManager : MonoBehaviour
 {
     public int height;

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingObject : MonoBehaviour
+/// <summary>
+/// moving object abstract
+/// </summary>
+public abstract class MovingObject : MonoBehaviour
 {
     public float moveTime = 0.1f;
     private Rigidbody2D rb2d;

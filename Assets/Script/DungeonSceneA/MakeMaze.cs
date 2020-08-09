@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// logic of makemaze
+/// </summary>
 public class MakeMaze
 {
     public int[, ] Maze;
