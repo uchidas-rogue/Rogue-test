@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0d3372bf13b554d8eb52a88a677b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnDelay: 0.1
+  playersTurn: 1
 --- !u!114 &6005745545912370129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 21
   width: 21
+  player: {fileID: 443155927198568571, guid: c0e3f68a3d881416cbeed4a332d86d41, type: 3}
   floorTiles:
   - {fileID: 9096768343651243088, guid: 4ca4b2b978219c24b8bf5ebd41ab0559, type: 3}
   wallTiles:

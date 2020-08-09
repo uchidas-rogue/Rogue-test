@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Singleton;
     private BoardManager boardScript;
 
+    [HideInInspector]
+    public bool playersTurn = true; //trueならプレイヤー移動可能
+
     //Awake call when Game start
     void Awake ()
     {
