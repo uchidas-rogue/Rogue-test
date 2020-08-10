@@ -59,6 +59,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 21
   width: 21
+  stairsTile: {fileID: 1807347104948895904, guid: 9d1b4b13852a743bdbcff5a3481b4245,
+    type: 3}
   floorTiles:
   - {fileID: 9096768343651243088, guid: 4ca4b2b978219c24b8bf5ebd41ab0559, type: 3}
   wallTiles:
