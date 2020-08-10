@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// attach to GameManagerObject
@@ -36,4 +37,21 @@ public class GameManager : MonoBehaviour
     {
         boardScript.SetupScene ();
     }
+
+    /// <summary>
+    /// ゲーム起動時に１度だけ実行
+    /// sceneLoadedにonsceneloadeを追記
+    /// </summary>
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static public void CallbackInitialization()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        Singleton.InitGame();
+    }
+
+
 }

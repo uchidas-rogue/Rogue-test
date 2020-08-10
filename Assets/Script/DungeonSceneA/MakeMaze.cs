@@ -13,14 +13,13 @@ public class MakeMaze
     private Direction direction = Direction.right;
     private int x = 1;
     private int y = 1;
-    private int roomSize;
     private int roomWidth;
     private int roomHeiht;
-    private int roomEntry;
     private int roomEntryX;
     private int roomEntryY;
     private int roomNumber;
     private List<int[]> FloorPosList = new List<int[]> ();
+    private List<int[]> StairsSuggestList = new List<int[]> ();
     public MakeMaze (int width, int height)
     {
         this.width = width;
@@ -122,6 +121,19 @@ public class MakeMaze
         }
     }
 
+    private void CheckStairsSuggestPosition ()
+    {
+        CheckFloorPosition ();
+        foreach (var item in FloorPosList)
+        {
+            if ((Maze[item[0] + 1, item[1]] + Maze[item[0] - 1, item[1]] +
+                    Maze[item[0], item[1] + 1] + Maze[item[0], item[1] - 1]) == 1)
+            {
+                StairsSuggestList.Add (item);
+            }
+        }
+    }
+
     private bool CheckAnyDigPosition ()
     {
         for (int i = 0; i < (this.width - 1) / 2; i++)
@@ -192,20 +204,6 @@ public class MakeMaze
         }
     }
 
-    private void ChangeroomSizeAndroomEntry ()
-    {
-        this.roomSize = Random.Range (4, 8);
-        if (this.roomSize % 2 == 0)
-        { //odd num
-            this.roomSize++;
-        }
-        this.roomEntry = Random.Range (0, roomSize + 1);
-        if (this.roomEntry % 2 == 1)
-        { //even num
-            this.roomEntry--;
-        }
-    }
-
     private void MakeRoom ()
     {
         if (direction == Direction.up || direction == Direction.down)
@@ -262,7 +260,6 @@ public class MakeMaze
         //y=(height-1)/2 + 1;
 
         ChangeroomSize ();
-        this.roomEntry = 0;
         if (CheckCanMakeRoom (this.x, this.y, this.roomWidth, this.roomHeiht, this.roomEntryX, this.roomEntryY))
         {
             while (!CheckCanMakeRoom (this.x, this.y, this.roomWidth, this.roomHeiht, this.roomEntryX, this.roomEntryY, this.direction))
@@ -298,5 +295,10 @@ public class MakeMaze
             }
             cnt++;
         }
+
+        CheckStairsSuggestPosition ();
+        int randomListNum = Random.Range (0, StairsSuggestList.Count);
+        Maze[StairsSuggestList[randomListNum][0], StairsSuggestList[randomListNum][1]] = 3;
+
     }
 }

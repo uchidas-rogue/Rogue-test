@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// attach to PlayerObject
 /// </summary>
 public class Player : MovingObject
-{　
+{
     private void Update ()
     {
         if (!GameManager.Singleton.playersTurn) return;
@@ -28,9 +29,26 @@ public class Player : MovingObject
         }
     }
 
+    /// <summary>
+    /// colliderのistriggerがオンのものと衝突した時呼ばれる
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter2D(Collider2D other){
+    if(other.tag == "Stairs") { //追加!!
+        Invoke("Restart",1f);
+        this.enabled = false;
+    } 
+}
+
     protected override void AttemptMove (int xDir, int yDir)
     {
         GameManager.Singleton.playersTurn = false;
         base.AttemptMove (xDir, yDir);
+    }
+
+    private void Restart ()
+    {
+        //reload scene
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex, LoadSceneMode.Single);
     }
 }
