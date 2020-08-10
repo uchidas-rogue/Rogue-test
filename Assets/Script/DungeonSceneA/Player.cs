@@ -35,7 +35,7 @@ public class Player : MovingObject
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other){
     if(other.tag == "Stairs") { //追加!!
-        Invoke("Restart",1f);
+        Invoke("Restart",0.5f);
         this.enabled = false;
     } 
 }

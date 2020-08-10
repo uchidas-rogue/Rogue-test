@@ -252,6 +252,14 @@ public class MakeMaze
         }
     }
 
+    private void MakeStairs ()
+    {
+        CheckStairsSuggestPosition ();
+        int randomListNum = Random.Range (0, StairsSuggestList.Count);
+        Maze[StairsSuggestList[randomListNum][0], StairsSuggestList[randomListNum][1]] = 3;
+
+    }
+
     public void DigMaze ()
     {
         Maze = new int[this.width, this.height];
@@ -296,9 +304,6 @@ public class MakeMaze
             cnt++;
         }
 
-        CheckStairsSuggestPosition ();
-        int randomListNum = Random.Range (0, StairsSuggestList.Count);
-        Maze[StairsSuggestList[randomListNum][0], StairsSuggestList[randomListNum][1]] = 3;
-
+        MakeStairs();
     }
 }
