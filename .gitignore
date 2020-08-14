@@ -28,6 +28,12 @@
 /[Aa]ssets/Gizmos/
 /[Aa]ssets/Plugins/
 
+# TextMesh Pro add font data
+/[Aa]ssets/TextMesh Pro/
+
+# kopacurve image 
+/[Aa]ssets/Sprites/kopacurve
+
 # Visual Studio code cache directory
 .vscode/
 
