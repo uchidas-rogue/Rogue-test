@@ -12,7 +12,7 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 `brew cask install google-chrome`  
 `brew cask install unity-hub`  
 `brew cask install visual-studio-code`  
-`brew cask install zoomus`
+`brew cask install zoomus`  
 `brew cask install gimp`
 
 ## 「Unity hub」のインストール
@@ -76,12 +76,18 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 1. VScodeをデフォルトエディターに設定  
  「Edit」タブを開き「Preferences…」をクリック  
  「External Tools」の「External Script Editor」を「VisualStudioCode」に変更  
- ※「Generate .csproj files for:」のパラメータ全部チェックをつけて「Regenerate project files」  
-2. プラットホームをAndoroidに変更  
- 「File」タブを開き「Build Setting」をクリック  
- 「Android」を選択して「Switch Platform」をクリック  
+ ~~※「Generate .csproj files for:」のパラメータ全部チェックをつけて「Regenerate project files」~~  
+2. ~~プラットホームをAndoroidに変更~~  
+ ~~「File」タブを開き「Build Setting」をクリック~~  
+ ~~「Android」を選択して「Switch Platform」をクリック~~  
 3. 「CRIware」の導入  
  「ADX2 LE」を公式サイトよりダウンロード  
  C:\criにダウンロードしたファイルを展開  
  Unityにて「Asset」タブを開き「Import Package」=>「Custom Package…」をクリック  
  C:\cri\unity\pluginにあるパッケージを導入（チェックマークはデフォルト）  
+4. TextMesh Pro + アプリ明朝の導入  
+ TextMesh Pro -> PackageManagerからインストール  
+ アプリ明朝 -> otfファイルは http://flopdesign.com/blog/font/5852/ よりダウンロード  
+ 下記のリンク先を参考に導入、※Atlas Resolutionは4096  
+ https://qiita.com/squall22446688/items/0af50b957aca8a4b3881  
+ 
