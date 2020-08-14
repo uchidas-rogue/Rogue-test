@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// attach to GameManagerObject
@@ -10,9 +12,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton;
     private BoardManager boardScript;
+    private bool first = true;
 
     [HideInInspector]
     public bool playersTurn = true; //trueならプレイヤー移動可能
+    private TextMeshProUGUI floorNumText;
+    private int floorNum = 1;
 
     //Awake call when Game start
     void Awake ()
@@ -31,27 +36,25 @@ public class GameManager : MonoBehaviour
         //BoardManager
         boardScript = GetComponent<BoardManager> ();
         InitGame ();
+        //sceneLoadedにonsceneloadeを追記
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void InitGame ()
     {
+        this.floorNumText = GameObject.Find("FloorNumText").GetComponent<TextMeshProUGUI>();
+        this.floorNumText.text = floorNum + "F";
         boardScript.SetupScene ();
     }
 
-    /// <summary>
-    /// ゲーム起動時に１度だけ実行
-    /// sceneLoadedにonsceneloadeを追記
-    /// </summary>
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    static public void CallbackInitialization()
+    static private void OnSceneLoaded (Scene arg0, LoadSceneMode arg1)
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (!Singleton.first)
+        {
+            Singleton.floorNum++;
+            Singleton.InitGame ();
+        }
+        Singleton.first = false;
     }
-
-    static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        Singleton.InitGame();
-    }
-
 
 }
