@@ -22,11 +22,11 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 
 ## 「VScode 1.45.0 64bit」のインストール
 
-* Mac用　設定追記  
+* Mac用 設定追記  
   1. spotlightのキーバインドを変更  
   システム環境設定→spotlight→キーバインド  
   「spotlightの検索を表示」のチェックを外す  
-  2. インテリセンスのサジェストトリガーの設定  
+  1. インテリセンスのサジェストトリガーの設定  
   `command+k -> command+s`  
   以下の文字で検索  
   `editor.action.triggerSuggest`  
@@ -77,15 +77,15 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
  「Edit」タブを開き「Preferences…」をクリック  
  「External Tools」の「External Script Editor」を「VisualStudioCode」に変更  
  ~~※「Generate .csproj files for:」のパラメータ全部チェックをつけて「Regenerate project files」~~  
-2. ~~プラットホームをAndoroidに変更~~  
+1. ~~プラットホームをAndoroidに変更~~  
  ~~「File」タブを開き「Build Setting」をクリック~~  
  ~~「Android」を選択して「Switch Platform」をクリック~~  
-3. 「CRIware」の導入  
+1. 「CRIware」の導入  
  「ADX2 LE」を公式サイトよりダウンロード  
  C:\criにダウンロードしたファイルを展開  
  Unityにて「Asset」タブを開き「Import Package」=>「Custom Package…」をクリック  
  C:\cri\unity\pluginにあるパッケージを導入（チェックマークはデフォルト）  
-4. TextMesh Pro + アプリ明朝の導入  
+1. TextMesh Pro + アプリ明朝の導入  
  TextMesh Pro -> PackageManagerからインストール  
  アプリ明朝 -> otfファイルは http://flopdesign.com/blog/font/5852/ よりダウンロード  
  下記のリンク先を参考に導入、※Atlas Resolutionは4096  
