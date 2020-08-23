@@ -13,7 +13,14 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 `brew cask install unity-hub`  
 `brew cask install visual-studio-code`  
 `brew cask install zoomus`  
-`brew cask install gimp`
+`brew cask install gimp`  
+
+Update用のコマンド  
+``brew update; brew upgrade `brew list`; brew cask upgrade `brew cask list` ``  
+
+vscodeのUpdate時の注意  
+インテリセンスが効かなくなったらmonoを更新  
+->それでもダメなら、C#の拡張のバージョンをアップデート前に戻す
 
 ## 「Unity hub」のインストール
 
@@ -33,9 +40,9 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
   キーバインドを「command+space」に変更  
 
 * 公式サイトからインストーラをダウンロードしてインストール  
- 「mono-6.8.0.123-x64」のインストール（必須かどうか不明）  
-   入れないとコード補完がきかない？  
- 「.NET Framework 4.7.1」のインストール（絶対必須）  
+ 「mono-6.8.0.123-x64」のインストール（Macで必須）  
+   入れないとコード補完がきかない  
+ 「.NET Framework 4.7.1」のインストール（Windowsで必須）  
    入れないとコード補完がきかない  
  「.NET core 3.1 SDK」のインストール（任意）  
    入れると余計なエラー表示が消える  
@@ -44,8 +51,8 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
  C# powered by OmniSharp  
  C# Extensions  
  C# FixFormat  
+ C# XML Documentation Comments  
  Debugger for Unity  
- Mono Debug <=必須かどうか不明  
  Git History  
  Japanese Language Pack for VS Code  
   以下は任意  
