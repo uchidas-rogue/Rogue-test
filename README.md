@@ -92,9 +92,9 @@ vscodeのUpdate時の注意
  C:\criにダウンロードしたファイルを展開  
  Unityにて「Asset」タブを開き「Import Package」=>「Custom Package…」をクリック  
  C:\cri\unity\pluginにあるパッケージを導入（チェックマークはデフォルト）  
-1. TextMesh Pro + アプリ明朝の導入  
+1. TextMesh Pro + M＋Fontsの導入  
  TextMesh Pro -> PackageManagerからインストール  
- アプリ明朝 -> otfファイルは http://flopdesign.com/blog/font/5852/ よりダウンロード  
- 下記のリンク先を参考に導入、※Atlas Resolutionは4096  
- https://qiita.com/squall22446688/items/0af50b957aca8a4b3881  
+ M+Fonts -> otfファイルは https://mplus-fonts.osdn.jp/about.html よりダウンロード  
+ 下記のリンク先を参考に導入、※ttfはmplus-2c-regular.ttf※Atlas Resolutionは4096  
+ https://hi-network.sakura.ne.jp/wp/2020/04/15/post-1407/  
  
