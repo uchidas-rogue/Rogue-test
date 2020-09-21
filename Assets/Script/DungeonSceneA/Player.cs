@@ -33,12 +33,14 @@ public class Player : MovingObject
     /// colliderのistriggerがオンのものと衝突した時呼ばれる
     /// </summary>
     /// <param name="other"></param>
-    private void OnTriggerEnter2D(Collider2D other){
-    if(other.tag == "Stairs") { //追加!!
-        Invoke("Restart",0.5f);
-        this.enabled = false;
-    } 
-}
+    private void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.tag == "Stairs")
+        { //追加!!
+            Invoke ("Restart", 0.5f);
+            this.enabled = false;
+        }
+    }
 
     protected override void AttemptMove (int xDir, int yDir)
     {
