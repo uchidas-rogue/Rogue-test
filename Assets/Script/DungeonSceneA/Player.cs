@@ -12,6 +12,17 @@ public class Player : MovingObject
     public int horizontal;
     [HideInInspector]
     public int vertical;
+
+    public Sprite[] playerSprites;
+
+    private enum spriteDir
+    {
+        up = 0,
+        down = 1,
+        left = 2,
+        right = 3
+    }
+
     private void Update ()
     {
         if (!GameManager.Singleton.playersTurn) return;
@@ -24,6 +35,24 @@ public class Player : MovingObject
 
         if (horizontal != 0 || vertical != 0)
         {
+            // Change player Sprite
+            if (vertical == 1)
+            {
+                base.spriteRenderer.sprite = playerSprites[(int) spriteDir.up];
+            }
+            else if (vertical == -1)
+            {
+                base.spriteRenderer.sprite = playerSprites[(int) spriteDir.down];
+            }
+            else if (horizontal == -1)
+            {
+                base.spriteRenderer.sprite = playerSprites[(int) spriteDir.left];
+            }
+            else if (horizontal == 1)
+            {
+                base.spriteRenderer.sprite = playerSprites[(int) spriteDir.right];
+            }
+
             AttemptMove (horizontal, vertical);
             horizontal = 0;
             vertical = 0;

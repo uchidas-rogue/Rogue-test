@@ -11,6 +11,7 @@ public abstract class MovingObject : MonoBehaviour
     private BoxCollider2D boxCollider;
     public float moveTime = 0.05f;
     private Rigidbody2D rb2d;
+    protected SpriteRenderer spriteRenderer;
     private float inverseMoveTime;
     private Vector2 tmpVec2 = new Vector2 (0, 0);
 
@@ -18,6 +19,7 @@ public abstract class MovingObject : MonoBehaviour
     {
         this.rb2d = GetComponent<Rigidbody2D> ();
         this.boxCollider = GetComponent<BoxCollider2D> ();
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.inverseMoveTime = 1f / moveTime;
     }
 

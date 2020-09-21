@@ -2830,6 +2830,35 @@ PrefabInstance:
       propertyPath: m_EdgeRadius
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4767211417209575845, guid: ceb2a8428c49847589c5a3130392085b,
+        type: 3}
+      propertyPath: playerSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767211417209575845, guid: ceb2a8428c49847589c5a3130392085b,
+        type: 3}
+      propertyPath: playerSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: de9ae80cf10ba41baa596b14d10c7238,
+        type: 3}
+    - target: {fileID: 4767211417209575845, guid: ceb2a8428c49847589c5a3130392085b,
+        type: 3}
+      propertyPath: playerSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: e9bc52ceb85064cbf82742d3bf00c981,
+        type: 3}
+    - target: {fileID: 4767211417209575845, guid: ceb2a8428c49847589c5a3130392085b,
+        type: 3}
+      propertyPath: playerSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9adc9753169a6fc49860573be7953855,
+        type: 3}
+    - target: {fileID: 4767211417209575845, guid: ceb2a8428c49847589c5a3130392085b,
+        type: 3}
+      propertyPath: playerSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 873458fb7dfef5b45b119b2c4c221acd,
+        type: 3}
     - target: {fileID: 4767211417209575851, guid: ceb2a8428c49847589c5a3130392085b,
         type: 3}
       propertyPath: m_Name
