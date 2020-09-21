@@ -12,8 +12,9 @@ public class Player : MovingObject
     public int horizontal;
     [HideInInspector]
     public int vertical;
-
     public Sprite[] playerSprites;
+    [HideInInspector]
+    public bool isTurn;
 
     private enum spriteDir
     {
@@ -53,7 +54,7 @@ public class Player : MovingObject
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.right];
             }
 
-            AttemptMove (horizontal, vertical);
+            if (!isTurn) { AttemptMove (horizontal, vertical); }
             horizontal = 0;
             vertical = 0;
         }
