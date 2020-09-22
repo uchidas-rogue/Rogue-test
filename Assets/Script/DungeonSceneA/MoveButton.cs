@@ -64,7 +64,7 @@ public class MoveButton : MonoBehaviour
         if (isButtonDown)
         { //長押し判別のためのウエイト
             downCount++;
-            if (downCount > 100) { MovePlayer (); }
+            if (downCount > 50) { MovePlayer (); }
         }
     }
 
