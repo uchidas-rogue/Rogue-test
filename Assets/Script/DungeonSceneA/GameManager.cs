@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public bool playersTurn = true; //trueならプレイヤー移動可能
     private TextMeshProUGUI floorNumText;
     private GameObject messageWindow;
-    private GameObject charaNameWindow;
     private int floorNum = 0;
 
     //Awake call when Game start
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         //BoardManager
         boardScript = GetComponent<BoardManager> ();
-        
+
         //sceneLoadedにonsceneloadeを追記
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -57,20 +56,13 @@ public class GameManager : MonoBehaviour
 
     static private void OnSceneLoaded (Scene arg0, LoadSceneMode arg1)
     {
-        //get messagewindowß
+        //get messagewindow
         Singleton.messageWindow = GameObject.Find ("MessageWindow");
-        Singleton.charaNameWindow = GameObject.Find ("CharaNameWindow");
         //disable messagewindow
         Singleton.messageWindow.SetActive (false);
-        Singleton.charaNameWindow.SetActive (false);
 
         Singleton.floorNum++;
         Singleton.InitGame ();
-
-        //Singleton.SetStringToMessageWindow(
-        //    "階層が変わりました。" + "\n"
-        //    + "ここは" + Singleton.floorNum + "Fです。");
-
     }
 
 }
