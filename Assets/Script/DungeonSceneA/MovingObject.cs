@@ -14,6 +14,7 @@ public abstract class MovingObject : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     private float inverseMoveTime;
     private Vector2 tmpVec2 = new Vector2 (0, 0);
+    private float sqrRemainingDistance = 0;
 
     protected virtual void Start ()
     {
@@ -25,12 +26,11 @@ public abstract class MovingObject : MonoBehaviour
 
     protected IEnumerator SmoothMovement (Vector3 end)
     {
-        float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+        sqrRemainingDistance = (transform.position - end).sqrMagnitude;
 
         while (float.Epsilon < sqrRemainingDistance)
         {
-            Vector3 newPosition = Vector3.MoveTowards (rb2d.position, end, inverseMoveTime * Time.deltaTime);
-            rb2d.MovePosition (newPosition);
+            rb2d.MovePosition (Vector3.MoveTowards (rb2d.position, end, inverseMoveTime * Time.deltaTime));
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
         }

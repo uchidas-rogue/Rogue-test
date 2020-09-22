@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 /// <summary>
 /// attach to GameManagerObject
@@ -12,12 +12,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton;
     private BoardManager boardScript;
-    private bool first = true;
 
     [HideInInspector]
     public bool playersTurn = true; //trueならプレイヤー移動可能
     private TextMeshProUGUI floorNumText;
-    private int floorNum = 1;
+    private GameObject messageWindow;
+    private GameObject charaNameWindow;
+    private int floorNum = 0;
 
     //Awake call when Game start
     void Awake ()
@@ -35,26 +36,41 @@ public class GameManager : MonoBehaviour
 
         //BoardManager
         boardScript = GetComponent<BoardManager> ();
-        InitGame ();
+        
         //sceneLoadedにonsceneloadeを追記
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void InitGame ()
     {
-        this.floorNumText = GameObject.Find("FloorNumText").GetComponent<TextMeshProUGUI>();
+        this.floorNumText = GameObject.Find ("FloorNumText").GetComponent<TextMeshProUGUI> ();
         this.floorNumText.text = floorNum + "F";
+
         boardScript.SetupScene ();
+    }
+
+    private void SetStringToMessageWindow (string msg)
+    {
+        messageWindow.SetActive (true);
+        messageWindow.GetComponent<MessageSend> ().message = msg;
     }
 
     static private void OnSceneLoaded (Scene arg0, LoadSceneMode arg1)
     {
-        if (!Singleton.first)
-        {
-            Singleton.floorNum++;
-            Singleton.InitGame ();
-        }
-        Singleton.first = false;
+        //get messagewindowß
+        Singleton.messageWindow = GameObject.Find ("MessageWindow");
+        Singleton.charaNameWindow = GameObject.Find ("CharaNameWindow");
+        //disable messagewindow
+        Singleton.messageWindow.SetActive (false);
+        Singleton.charaNameWindow.SetActive (false);
+
+        Singleton.floorNum++;
+        Singleton.InitGame ();
+
+        //Singleton.SetStringToMessageWindow(
+        //    "階層が変わりました。" + "\n"
+        //    + "ここは" + Singleton.floorNum + "Fです。");
+
     }
 
 }
