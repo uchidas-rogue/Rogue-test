@@ -58,13 +58,14 @@ public class MessageSend : MonoBehaviour
 
         if (msgStack.Count != 0)
         { //if stack exists , set message again
+            yield return new WaitForSeconds (2);
             message = msgStack[0];
             msgStack.RemoveAt (0);
         }
         else
         {
-            yield return new WaitForSeconds(5);
-            gameObject.SetActive(false);
+            yield return new WaitForSeconds (5);
+            gameObject.SetActive (false);
         }
 
     }

@@ -54,7 +54,7 @@ public class Player : MovingObject
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.right];
             }
 
-            if (!isTurn) { AttemptMove (horizontal, vertical); }
+            if (!isTurn) { AttemptMove (horizontal, vertical);}
             horizontal = 0;
             vertical = 0;
         }

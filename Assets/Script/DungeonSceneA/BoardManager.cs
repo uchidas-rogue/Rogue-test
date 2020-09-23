@@ -10,6 +10,9 @@ public class BoardManager : MonoBehaviour
     public int height;
     public int width;
 
+    [HideInInspector]
+    public int[,] Maze;
+
     //floor prefab 
     public GameObject[] floorTiles;
     //wall prefab
@@ -37,23 +40,25 @@ public class BoardManager : MonoBehaviour
         MakeMaze makeMaze = new MakeMaze (width, height);
         makeMaze.DigMaze ();
 
+        this.Maze = makeMaze.Maze;
+
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                if (makeMaze.Maze[x, y] == 0)
+                if (this.Maze[x, y] == 0)
                 {
                     SetTiles (wallTiles[8], x, y);
                 }
-                else if (makeMaze.Maze[x, y] == 1)
+                else if (this.Maze[x, y] == 1)
                 {
                     SetTiles (floorTiles[0], x, y);
                 }
-                else if (makeMaze.Maze[x, y] == 2)
+                else if (this.Maze[x, y] == 2)
                 {
                     SetTiles (floorTiles[0], x, y);
                 }
-                else if (makeMaze.Maze[x, y] == 3)
+                else if (this.Maze[x, y] == 3)
                 {
                     SetTiles (stairsTile, x, y);
                 }
