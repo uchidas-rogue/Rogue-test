@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class MakeMaze
 {
-    public int[, ] Maze;
+    public int[, , ] Maze;
     private int width;
     private int height;
     private Direction direction = Direction.right;
@@ -38,7 +38,7 @@ public class MakeMaze
     {
         return (x > -1 && x < this.width) &&
             (y > -1 && y < this.width) &&
-            (this.Maze[x, y] == 0);
+            (this.Maze[x, y, 0] == 0);
     }
 
     // check the position where can dig 
@@ -113,7 +113,7 @@ public class MakeMaze
         {
             for (int j = 0; j < (this.height - 1) / 2; j++)
             {
-                if (Maze[2 * i + 1, 2 * j + 1] != 0)
+                if (Maze[2 * i + 1, 2 * j + 1, 0] != 0)
                 {
                     FloorPosList.Add (new int[2] { 2 * i + 1, 2 * j + 1 });
                 }
@@ -126,8 +126,8 @@ public class MakeMaze
         CheckFloorPosition ();
         foreach (var item in FloorPosList)
         {
-            if ((Maze[item[0] + 1, item[1]] + Maze[item[0] - 1, item[1]] +
-                    Maze[item[0], item[1] + 1] + Maze[item[0], item[1] - 1]) == 1)
+            if ((Maze[item[0] + 1, item[1], 0] + Maze[item[0] - 1, item[1], 0] +
+                    Maze[item[0], item[1] + 1, 0] + Maze[item[0], item[1] - 1, 0]) == 1)
             {
                 StairsSuggestList.Add (item);
             }
@@ -214,7 +214,7 @@ public class MakeMaze
                 {
                     //(Maze[x-entry,y]),(Maze[x-entry,y+(size-1)])
                     //(Maze[x-entry+size-1,y]),(Maze[x-entry+size-1,y+(size-1)])
-                    Maze[this.x - roomEntryX + i, this.y + j * (int) direction] = 2;
+                    Maze[this.x - roomEntryX + i, this.y + j * (int) direction, 0] = 2;
                 }
             }
             roomNumber++;
@@ -227,7 +227,7 @@ public class MakeMaze
                 {
                     //(Maze[x,y-entry]),(Maze[x+(size-1),y-entry])
                     //(Maze[x,y-entry+size-1]),(Maze[x+(size-1),y-entry+size-1])
-                    Maze[this.x + i * (int) direction / 2, this.y - roomEntryY + j] = 2;
+                    Maze[this.x + i * (int) direction / 2, this.y - roomEntryY + j, 0] = 2;
                 }
             }
             roomNumber++;
@@ -239,16 +239,16 @@ public class MakeMaze
         if (direction == Direction.up || direction == Direction.down)
         {
             this.y += (int) direction;
-            Maze[this.x, this.y] = 1;
+            Maze[this.x, this.y, 0] = 1;
             this.y += (int) direction;
-            Maze[this.x, this.y] = 1;
+            Maze[this.x, this.y, 0] = 1;
         }
         if (direction == Direction.left || direction == Direction.right)
         {
             this.x += (int) direction / 2;
-            Maze[this.x, this.y] = 1;
+            Maze[this.x, this.y, 0] = 1;
             this.x += (int) direction / 2;
-            Maze[this.x, this.y] = 1;
+            Maze[this.x, this.y, 0] = 1;
         }
     }
 
@@ -256,13 +256,13 @@ public class MakeMaze
     {
         CheckStairsSuggestPosition ();
         int randomListNum = Random.Range (0, StairsSuggestList.Count);
-        Maze[StairsSuggestList[randomListNum][0], StairsSuggestList[randomListNum][1]] = 3;
+        Maze[StairsSuggestList[randomListNum][0], StairsSuggestList[randomListNum][1], 0] = 3;
 
     }
 
     public void DigMaze ()
     {
-        Maze = new int[this.width, this.height];
+        Maze = new int[this.width, this.height, 2];
         //entry position x,y oddnum,oddnum
         //x=(width-1)/2 + 1;
         //y=(height-1)/2 + 1;
@@ -304,6 +304,6 @@ public class MakeMaze
             cnt++;
         }
 
-        MakeStairs();
+        MakeStairs ();
     }
 }
