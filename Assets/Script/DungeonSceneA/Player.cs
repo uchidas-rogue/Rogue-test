@@ -16,14 +16,6 @@ public class Player : MovingObject
     [HideInInspector]
     public bool isTurn;
 
-    private enum spriteDir
-    {
-        up = 0,
-        down = 1,
-        left = 2,
-        right = 3
-    }
-
     private void Update ()
     {
         if (!GameManager.Singleton.playersTurn) return;
@@ -54,7 +46,7 @@ public class Player : MovingObject
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.right];
             }
 
-            if (!isTurn) { AttemptMove (horizontal, vertical);}
+            if (!isTurn) { AttemptMove (horizontal, vertical); }
             horizontal = 0;
             vertical = 0;
         }

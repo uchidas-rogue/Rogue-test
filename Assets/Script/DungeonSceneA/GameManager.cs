@@ -11,28 +11,33 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton;
+    [HideInInspector]
+    private GameObject MessageWindowObject;
+    [HideInInspector]
+    private GameObject PlayerObject;
+    [HideInInspector]
+    private GameObject MiniMapObject;
     private BoardManager boardScript;
 
-    [HideInInspector]
-    public bool _playersTurn = true; //trueならプレイヤー移動可能
+    private bool _playersTurn = true; //trueならプレイヤー移動可能
 
-    public bool playersTurn 
+    [HideInInspector]
+    public bool playersTurn
     {
-        get 
+        get
         {
             return _playersTurn;
         }
         set
         {
             if (_playersTurn != value)
-            {//if change false
-                SendMiniMapString();
+            {
+                SetMiniMapString ();
             }
             _playersTurn = value;
         }
     }
     private TextMeshProUGUI floorNumText;
-    private GameObject messageWindow;
     private int floorNum = 0;
     private string mapString;
 
@@ -59,37 +64,55 @@ public class GameManager : MonoBehaviour
 
     void InitGame ()
     {
+        GetObjectinInitGame();
+
+        //make map
+        boardScript.SetupScene ();
+        //make minimap
+        Singleton.SetMiniMapString ();
+
+        //disable messagewindow
+        this.MessageWindowObject.SetActive (false);
+
+        this.floorNum++;
         this.floorNumText = GameObject.Find ("FloorNumText").GetComponent<TextMeshProUGUI> ();
         this.floorNumText.text = floorNum + "F";
 
-        boardScript.SetupScene ();
+        Singleton.SetStringToMessageWindow ("ゲームが開始されました\nここから冒険は始まる！！");
+        Singleton.SetStringToMessageWindow ("二回目の呼び出しです\nここから冒険は再び始まる！！");
+    }
+
+    private void GetObjectinInitGame()
+    {
+        PlayerObject = GameObject.Find("Player").gameObject;
+        MessageWindowObject = GameObject.Find("MessageWindow").gameObject;
+        MiniMapObject = GameObject.Find("MiniMap").gameObject;
     }
 
     private void SetStringToMessageWindow (string msg)
     {
-        messageWindow.SetActive (true);
-        messageWindow.GetComponent<MessageSend> ().message = msg;
+        MessageWindowObject.SetActive (true);
+        MessageWindowObject.GetComponent<MessageSend> ().message = msg;
     }
 
-    private void SendMiniMapString ()
+    private void SetMiniMapString ()
     {
-        Transform player = GameObject.Find("Player").transform;
         mapString = "";
         for (int i = boardScript.width - 1; i >= 0; i--)
         {
             for (int j = 0; j < boardScript.height; j++)
             {
-                if ( j == player.position.x && i== player.position.y)
+                if (j == PlayerObject.transform.position.x && i == PlayerObject.transform.position.y)
                 {
-                    mapString += "●";
+                    mapString += "<color=yellow>●<color=white>";
                 }
                 else if (boardScript.Maze[j, i] == 3)
                 {
-                    mapString += "X";
+                    mapString += "<color=blue>■<color=white>";
                 }
                 else if (boardScript.Maze[j, i] == 1 || boardScript.Maze[j, i] == 2)
                 {
-                    mapString += "□";
+                    mapString += "   ";
                 }
                 else
                 {
@@ -98,25 +121,14 @@ public class GameManager : MonoBehaviour
             }
             mapString += "\n";
         }
-
-        GameObject.Find ("Maptext").GetComponent<TextMeshProUGUI> ().text = mapString;
+        MiniMapObject.GetComponent<MinimapControll>().SetmapText(mapString);
     }
 
     static private void OnSceneLoaded (Scene arg0, LoadSceneMode arg1)
     {
         //get messagewindow
-        Singleton.messageWindow = GameObject.Find ("MessageWindow");
-        //disable messagewindow
-        Singleton.messageWindow.SetActive (false);
-
-        Singleton.floorNum++;
+        //Singleton.MessageWindowObject = GameObject.Find ("MessageWindowObject");
         Singleton.InitGame ();
-
-        Singleton.SendMiniMapString ();
-
-        Singleton.SetStringToMessageWindow ("ゲームが開始されました\nここから冒険は始まる！！");
-        Singleton.SetStringToMessageWindow ("二回目の呼び出しです\nここから冒険は再び始まる！！");
-
     }
 
 }

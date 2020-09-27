@@ -16,6 +16,14 @@ public abstract class MovingObject : MonoBehaviour
     private Vector2 tmpVec2 = new Vector2 (0, 0);
     private float sqrRemainingDistance = 0;
 
+    protected enum spriteDir
+    {
+        up = 0,
+        down = 1,
+        left = 2,
+        right = 3
+    }
+
     protected virtual void Start ()
     {
         this.rb2d = GetComponent<Rigidbody2D> ();

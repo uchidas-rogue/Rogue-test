@@ -33,7 +33,8 @@ public class MessageSend : MonoBehaviour
     private WaitForSeconds waitForSeconds = new WaitForSeconds (0.1f);
     private TextMeshProUGUI messageWindowText;
 
-    void Start ()
+
+    void Awake()
     {
         messageWindowText = transform.GetChild (0).gameObject.GetComponent<TextMeshProUGUI> ();
     }
@@ -44,7 +45,6 @@ public class MessageSend : MonoBehaviour
 
     private IEnumerator DisplayMassage ()
     {
-        messageWindowText = transform.GetChild (0).gameObject.GetComponent<TextMeshProUGUI> ();
         messageWindowText.text = "";
 
         while (charCount < message.Length)
