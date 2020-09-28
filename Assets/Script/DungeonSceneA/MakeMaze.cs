@@ -291,7 +291,14 @@ public class MakeMaze
                 {
                     ChangeDir ();
                 }
-                MakeRoom ();
+                if (Random.Range (0, 3) == 0)
+                {// 三分の一で部屋作る
+                    MakeRoom ();
+                }
+                else
+                {
+                    MakePath ();
+                }
             }
             else if (CheckCanDig (this.x, this.y, this.direction))
             {
