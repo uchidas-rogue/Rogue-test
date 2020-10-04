@@ -263,9 +263,6 @@ public class MakeMaze
     public void DigMaze ()
     {
         Maze = new int[this.width, this.height, 2];
-        //entry position x,y oddnum,oddnum
-        //x=(width-1)/2 + 1;
-        //y=(height-1)/2 + 1;
 
         ChangeroomSize ();
         if (CheckCanMakeRoom (this.x, this.y, this.roomWidth, this.roomHeiht, this.roomEntryX, this.roomEntryY))
@@ -291,14 +288,7 @@ public class MakeMaze
                 {
                     ChangeDir ();
                 }
-                if (Random.Range (0, 3) == 0)
-                {// 三分の一で部屋作る
-                    MakeRoom ();
-                }
-                else
-                {
-                    MakePath ();
-                }
+                MakeRoom ();
             }
             else if (CheckCanDig (this.x, this.y, this.direction))
             {
