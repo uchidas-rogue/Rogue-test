@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1695391453}
   m_HandleRect: {fileID: 1695391452}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2675,6 +2675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveTime
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767211417209575845, guid: ceb2a8428c49847589c5a3130392085b,
+        type: 3}
+      propertyPath: blockingLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 4767211417209575851, guid: ceb2a8428c49847589c5a3130392085b,
         type: 3}
@@ -4645,6 +4650,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2143532400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca15bb06bfc946e5a02984891141030, type: 3}
+  m_Script: {fileID: 11500000, guid: 2524f900faf5a4ead84a43f29fb2456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

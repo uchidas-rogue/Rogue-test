@@ -3,47 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveButton : MonoBehaviour
+public class MoveButtonControll : MonoBehaviour
 {
     public string DirectionString;
     public Sprite[] ButtonSprites;
 
-    private Player playerScript;
+    private PlayerControll playerScript;
+    private bool isTurn;
     private bool isButtonDown;
     private int downCount = 0;
 
     private void MovePlayer ()
     {
-        this.playerScript = GameObject.Find ("Player").GetComponent<Player> ();
+        this.playerScript = GameManager.Singleton.PlayerObject.GetComponent<PlayerControll>();
         switch (DirectionString)
         {
             case "up":
-                this.playerScript.vertical = 1;
+                this.playerScript.Vertical = 1;
                 break;
             case "down":
-                this.playerScript.vertical = -1;
+                this.playerScript.Vertical = -1;
                 break;
             case "left":
-                this.playerScript.horizontal = -1;
+                this.playerScript.Horizontal = -1;
                 break;
             case "right":
-                this.playerScript.horizontal = 1;
+                this.playerScript.Horizontal = 1;
                 break;
             case "leftup":
-                this.playerScript.horizontal = -1;
-                this.playerScript.vertical = 1;
+                this.playerScript.Horizontal = -1;
+                this.playerScript.Vertical = 1;
                 break;
             case "leftdown":
-                this.playerScript.horizontal = -1;
-                this.playerScript.vertical = -1;
+                this.playerScript.Horizontal = -1;
+                this.playerScript.Vertical = -1;
                 break;
             case "rightup":
-                this.playerScript.horizontal = 1;
-                this.playerScript.vertical = 1;
+                this.playerScript.Horizontal = 1;
+                this.playerScript.Vertical = 1;
                 break;
             case "rightdown":
-                this.playerScript.horizontal = 1;
-                this.playerScript.vertical = -1;
+                this.playerScript.Horizontal = 1;
+                this.playerScript.Vertical = -1;
                 break;
             case "turn":
                 this.playerScript.isTurn = !this.playerScript.isTurn;

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageSend : MonoBehaviour
+public class MessageWindowControll : MonoBehaviour
 {
     private List<string> msgStack = new List<string> ();
     private string _message;
@@ -17,6 +17,7 @@ public class MessageSend : MonoBehaviour
         }
         set
         { //messageが入ったらメッセージ表示を同時に呼び出す
+            gameObject.SetActive (true);
             if (charCount != 0 && !_message.Equals (value))
             { //表示中にさらにメッセージが入力されたらストックする
                 msgStack.Add (value);

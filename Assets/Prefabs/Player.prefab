@@ -93,13 +93,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4767211417209575851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7d35df8e0bab4817aef11101e530c3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 851f20c792f4743b1b17435286defe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockingLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   moveTime: 0.05
+  horizontal: 0
+  vertical: 0
+  playerSprites:
+  - {fileID: 21300000, guid: de9ae80cf10ba41baa596b14d10c7238, type: 3}
+  - {fileID: 21300000, guid: e9bc52ceb85064cbf82742d3bf00c981, type: 3}
+  - {fileID: 21300000, guid: 9adc9753169a6fc49860573be7953855, type: 3}
+  - {fileID: 21300000, guid: 873458fb7dfef5b45b119b2c4c221acd, type: 3}
+  isTurn: 0
 --- !u!50 &4767211417209575850
 Rigidbody2D:
   serializedVersion: 4

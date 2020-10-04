@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// attach to PlayerObject
 /// </summary>
-public class Player : MovingObject
+public class PlayerControll : MovingObject
 {
     [HideInInspector]
-    public int horizontal;
+    public int Horizontal;
     [HideInInspector]
-    public int vertical;
+    public int Vertical;
     public Sprite[] playerSprites;
     [HideInInspector]
     public bool isTurn;
@@ -20,35 +20,35 @@ public class Player : MovingObject
     {
         if (!GameManager.Singleton.playersTurn) return;
 
-        // int horizontal = 0;
-        // int vertical = 0;
+        // int Horizontal = 0;
+        // int Vertical = 0;
 
-        // horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
-        // vertical = (int) (Input.GetAxisRaw ("Vertical"));
+        // Horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
+        // Vertical = (int) (Input.GetAxisRaw ("Vertical"));
 
-        if (horizontal != 0 || vertical != 0)
+        if (Horizontal != 0 || Vertical != 0)
         {
             // Change player Sprite
-            if (vertical == 1)
+            if (Vertical == 1)
             {
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.up];
             }
-            else if (vertical == -1)
+            else if (Vertical == -1)
             {
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.down];
             }
-            else if (horizontal == -1)
+            else if (Horizontal == -1)
             {
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.left];
             }
-            else if (horizontal == 1)
+            else if (Horizontal == 1)
             {
                 base.spriteRenderer.sprite = playerSprites[(int) spriteDir.right];
             }
 
-            if (!isTurn) { AttemptMove (horizontal, vertical); }
-            horizontal = 0;
-            vertical = 0;
+            if (!isTurn) { AttemptMove (Horizontal, Vertical); }
+            Horizontal = 0;
+            Vertical = 0;
         }
     }
 
