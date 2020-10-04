@@ -46,23 +46,23 @@ public class BoardManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (this.Maze[x, y, 0] == 0)
+                switch (this.Maze[x, y, 0])
                 {
-                    SetTiles (wallTiles[8], x, y);
+                    case 0:
+                        SetTiles (wallTiles[8], x, y);
+                        break;
+                    case 1:
+                        SetTiles (floorTiles[0], x, y);
+                        break;
+                    case 2:
+                        SetTiles (floorTiles[0], x, y);
+                        break;
+                    case 3:
+                        SetTiles (stairsTile, x, y);
+                        break;
+                    default:
+                        break;
                 }
-                else if (this.Maze[x, y, 0] == 1)
-                {
-                    SetTiles (floorTiles[0], x, y);
-                }
-                else if (this.Maze[x, y, 0] == 2)
-                {
-                    SetTiles (floorTiles[0], x, y);
-                }
-                else if (this.Maze[x, y, 0] == 3)
-                {
-                    SetTiles (stairsTile, x, y);
-                }
-
             }
         }
     }
