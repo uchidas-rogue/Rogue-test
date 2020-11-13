@@ -16,11 +16,13 @@ DockからLaunchpad→その他→ターミナルでターミナルを起動
 `brew cask install gimp`  
 
 Update用のコマンド  
-``brew update; brew upgrade `brew list`; brew cask upgrade `brew cask list` ``  
+``brew update; brew upgrade `brew list`; brew upgrade --cask `brew list --cask` ``  
 
 vscodeのUpdate時の注意  
 インテリセンスが効かなくなったらmonoを更新  
-->それでもダメなら、C#の拡張のバージョンをアップデート前に戻す
+->それでもダメなら、C#の拡張のバージョンをアップデート前に戻す  
+->C#の拡張機能はvscodeのsetting.jsonに`"omnisharp.useGlobalMono": "always"`を追加しないとエラー出る
+
 
 ## 「Unity hub」のインストール
 
